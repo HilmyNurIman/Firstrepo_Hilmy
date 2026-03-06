@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bonsai Wind Particles</title>
+
+<style>
+body{
+margin:0;
+overflow:hidden;
+background:#0b1d16;
+}
+canvas{
+display:block;
+}
+</style>
+
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<script>
+
+const canvas = document.getElementById("canvas")
+const ctx = canvas.getContext("2d")
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+let bonsaiParticles = []
+
+class Bonsai{
+constructor(){
+this.x = Math.random()*canvas.width
+this.y = Math.random()*canvas.height
+this.size = 18 + Math.random()*10
+this.speed = Math.random()*0.3
+this.angle = Math.random()*Math.PI
+}
+
+move(){
+this.x += this.speed
+this.angle += 0.02
+this.y += Math.sin(this.angle)*0.4
+
+if(this.x > canvas.width){
+this.x = -20
+this.y = Math.random()*canvas.height
+}
+}
+
+draw(){
+ctx.font = this.size + "px serif"
+ctx.fillText("🌳", this.x, this.y)
+}
+}
+
+function createBonsai(){
+for(let i=0;i<80;i++){
+bonsaiParticles.push(new Bonsai())
+}
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+bonsaiParticles.forEach(p=>{
+p.move()
+p.draw()
+})
+
+requestAnimationFrame(animate)
+}
+
+createBonsai()
+animate()
+
+</script>
+
+</body>
+</html>
