@@ -1,2 +1,5 @@
-Halo Gamelab Indonesia.
-Ini adalah respositori pertamaku di buat dari PC lokal.
+## 🐍 Contribution Snake
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ahmadaqil/REPO-NAME/output/github-contribution-grid-snake.svg">
+</p>
