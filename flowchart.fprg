@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value="Bot Telegram Final"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="pilihan" type="Integer"/>
+            <declare name="nama, produk" type="String"/>
+            <declare name="jumlah" type="Integer"/>
+            <declare name="jalan" type="Boolean"/>
+            
+            <assign variable="jalan" value="True"/>
+            
+            <while expression="jalan">
+                <output expression="&quot;1. Lihat Katalog | 2. Pesan Produk | 3. Keluar&quot;" newline="True"/>
+                <input variable="pilihan"/>
+                
+                <if expression="pilihan == 1">
+                    <then>
+                        <output expression="&quot;Produk A - 10000&quot;" newline="True"/>
+                        <output expression="&quot;Produk B - 15000&quot;" newline="True"/>
+                        <output expression="&quot;Ketik menu lagi untuk kembali&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <if expression="pilihan == 2">
+                            <then>
+                                <output expression="&quot;Masukkan nama:&quot;" newline="True"/>
+                                <input variable="nama"/>
+                                
+                                <output expression="&quot;Masukkan produk:&quot;" newline="True"/>
+                                <input variable="produk"/>
+                                
+                                <output expression="&quot;Masukkan jumlah:&quot;" newline="True"/>
+                                <input variable="jumlah"/>
+                                
+                                <if expression="nama == &quot;&quot; or produk == &quot;&quot; or jumlah &lt;= 0">
+                                    <then>
+                                        <output expression="&quot;Data tidak valid, ulangi!&quot;" newline="True"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Pesanan diterima, admin akan menghubungi Anda&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <if expression="pilihan = 3">
+                                    <then>
+                                        <assign variable="jalan" value="False"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Pilihan tidak valid!&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+            
+            <output expression="&quot;Program selesai&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
